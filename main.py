@@ -95,22 +95,28 @@ def back():
     background = Label(image=imag_1)
     background.grid(row = 0, column = 0, columnspan = 3)
 
-    butaoNew = Button(root, text='Visualizar Mapa',padx=85,pady=5,fg='snow',bg='black',command = show_map)
+    butaoNew = Button(root, text='Visualizar Mapa',padx=103,pady=5,fg='snow',bg='black',command = show_map)
     butaoNew.place(relx=0.5,rely=0.1,anchor=CENTER)
 
-    butaoPvP = Button(root,text='Calcular Rota',padx=90,pady=5,fg='snow',bg='black',command = show_path)
+    butaoPvP = Button(root,text='Calcular Menor Rota',padx=90,pady=5,fg='snow',bg='black',command = show_path)
     butaoPvP.place(relx=0.5,rely=0.2,anchor=CENTER)
+
+    butaoFast = Button(root,text='Calcular Caminho mais rápido',padx=65,pady=5,fg='snow',bg='black',command = show_map)
+    butaoFast.place(relx=0.5,rely=0.3,anchor=CENTER)
 
     butaoExit = Button(root,text='SAIR',padx=117,pady=5,fg='snow',bg='black',command=root.quit)
     butaoExit.place(relx=0.5,rely=0.5,anchor=CENTER)
    
 
 # Butões do Menu
-butaoNew = Button(root, text='Visualizar Mapa',padx=85,pady=5,fg='snow',bg='black',command = show_map)
+butaoNew = Button(root, text='Visualizar Mapa',padx=103,pady=5,fg='snow',bg='black',command = show_map)
 butaoNew.place(relx=0.5,rely=0.1,anchor=CENTER)
 
-butaoPvP = Button(root,text='Calcular Rota',padx=90,pady=5,fg='snow',bg='black',command = show_path)
+butaoPvP = Button(root,text='Calcular Menor Rota',padx=90,pady=5,fg='snow',bg='black',command = show_path)
 butaoPvP.place(relx=0.5,rely=0.2,anchor=CENTER)
+
+butaoFast = Button(root,text='Calcular Caminho mais rápido',padx=65,pady=5,fg='snow',bg='black',command = show_map)
+butaoFast.place(relx=0.5,rely=0.3,anchor=CENTER)
 
 butaoExit = Button(root,text='SAIR',padx=117,pady=5,fg='snow',bg='black',command=root.quit)
 butaoExit.place(relx=0.5,rely=0.5,anchor=CENTER)
