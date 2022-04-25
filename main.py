@@ -15,8 +15,9 @@ imag_1 = PhotoImage(file= "assets/backgroundDelivery.png")
 imag_2 = PhotoImage(file = "assets/Va_va_land_city.png")
 imag_3 = PhotoImage(file = "assets/va_va_land_city.png")
 imag_4 = PhotoImage(file = "assets/Va_va_land_nodes_km.png")
+imag_5 = PhotoImage(file = "assets/Va_va_land_nodes_mins.png")
 
-imageList = [imag_1, imag_2, imag_3, imag_4]
+imageList = [imag_1, imag_2, imag_3, imag_4, imag_5]
 
 # Imagem de fundo
 background = Label(image=imag_1)
@@ -95,7 +96,7 @@ def show_fastest_path():
     global background
     global e
     background.grid_forget()
-    background = Label(image=imag_4)
+    background = Label(image=imag_5)
     background.grid(row = 1, column = 0, columnspan = 3)
 
     destiny = e.get()
