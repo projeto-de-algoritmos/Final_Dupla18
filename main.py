@@ -32,11 +32,13 @@ def show_map():
     button_back = Button(root,text='Back',padx=117,pady=5,fg='snow',bg='black',command=back)
     button_back.place(relx=0.5,rely=0.9,anchor=CENTER)
 
-def show_path():
-    # graph = init_graph()
+def show_path(controller):
+    #print(controller)
 
-    # path = BFS_short_path(graph, '16')
-    # print(path)
+    if controller == 1:
+        new_comand = show_small_path
+    else:
+        new_comand = show_fastest_path
 
     global background
     global e
@@ -47,7 +49,7 @@ def show_path():
     e = Entry(root, width=15, bg="#1B1918", fg = "snow")
     e.place(relx=0.92,rely=0.9,anchor=CENTER)
 
-    button_enter = Button(root,text='Buscar',padx=30,pady=5,fg='snow',bg='black',command=show_small_path)
+    button_enter = Button(root,text='Buscar',padx=30,pady=5,fg='snow',bg='black',command=new_comand)
     button_enter.place(relx=0.92,rely=0.95,anchor=CENTER)
 
     button_back = Button(root,text='Back',padx=30,pady=5,fg='snow',bg='black',command=back)
@@ -88,6 +90,37 @@ def show_small_path():
     # for i in range(len(path)):
     #     exec('Label%d=Label(root,text="%s")\nLabel%d.pack()' % (i,path[i],i))
 
+def show_fastest_path():
+
+    global background
+    global e
+    background.grid_forget()
+    background = Label(image=imag_4)
+    background.grid(row = 1, column = 0, columnspan = 3)
+
+    destiny = e.get()
+    goal = int(destiny)
+    #print(destiny)
+    
+    second_graph = init_graph_floyd()
+    path = floyd_warshall(23, second_graph, goal)
+    print(path)
+
+    button_back = Button(root,text='Back',padx=30,pady=5,fg='snow',bg='black',command=back)
+    button_back.place(relx=0.075,rely=0.05,anchor=CENTER)
+
+    text=Text(root, width=24, height=10,fg='snow',bg='black')
+    text.place(relx=0.515,rely=0.625,anchor=CENTER)
+    text.insert(END, 'Tempo estimado: ' + str(path[0]) + ' min\n\n')
+    text.insert(END, 'Caminho mais rápido:\n')
+
+    count = 0
+    for day in path:
+        if count > 0 :
+            text.insert(END, str(day) + '\n')
+        count = 1
+
+
 def back():
     
     global background
@@ -98,10 +131,10 @@ def back():
     butaoNew = Button(root, text='Visualizar Mapa',padx=103,pady=5,fg='snow',bg='black',command = show_map)
     butaoNew.place(relx=0.5,rely=0.1,anchor=CENTER)
 
-    butaoPvP = Button(root,text='Calcular Menor Rota',padx=90,pady=5,fg='snow',bg='black',command = show_path)
+    butaoPvP = Button(root,text='Calcular Menor Rota',padx=90,pady=5,fg='snow',bg='black',command = lambda: show_path(1))
     butaoPvP.place(relx=0.5,rely=0.2,anchor=CENTER)
 
-    butaoFast = Button(root,text='Calcular Caminho mais rápido',padx=65,pady=5,fg='snow',bg='black',command = show_map)
+    butaoFast = Button(root,text='Calcular Caminho mais rápido',padx=65,pady=5,fg='snow',bg='black',command = lambda: show_path(2))
     butaoFast.place(relx=0.5,rely=0.3,anchor=CENTER)
 
     butaoExit = Button(root,text='SAIR',padx=117,pady=5,fg='snow',bg='black',command=root.quit)
@@ -112,10 +145,10 @@ def back():
 butaoNew = Button(root, text='Visualizar Mapa',padx=103,pady=5,fg='snow',bg='black',command = show_map)
 butaoNew.place(relx=0.5,rely=0.1,anchor=CENTER)
 
-butaoPvP = Button(root,text='Calcular Menor Rota',padx=90,pady=5,fg='snow',bg='black',command = show_path)
+butaoPvP = Button(root,text='Calcular Menor Rota',padx=90,pady=5,fg='snow',bg='black',command = lambda: show_path(1))
 butaoPvP.place(relx=0.5,rely=0.2,anchor=CENTER)
 
-butaoFast = Button(root,text='Calcular Caminho mais rápido',padx=65,pady=5,fg='snow',bg='black',command = show_map)
+butaoFast = Button(root,text='Calcular Caminho mais rápido',padx=65,pady=5,fg='snow',bg='black',command = lambda: show_path(2))
 butaoFast.place(relx=0.5,rely=0.3,anchor=CENTER)
 
 butaoExit = Button(root,text='SAIR',padx=117,pady=5,fg='snow',bg='black',command=root.quit)
