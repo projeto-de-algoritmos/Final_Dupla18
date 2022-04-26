@@ -1,16 +1,7 @@
-**!! Atenção: Renomeie o seu repositório para (Tema)_(NomeDoProjeto). !!** 
+
 
 Temas:
- - Grafos1
- - Grafos2
- - PD
- - D&C
- - Greed
  - Final 
- 
- **!! *Não coloque os nomes dos alunos no título do repositório*. Exemplo de título correto: Grafos2_Labirinto-do-Minotauro !!**
- 
- (Apague essa seção)
 
 # NomedoProjeto
 
@@ -30,7 +21,7 @@ O nosso projeto é chamado de GDelivery, onde o objetivo é achar o caminho mais
 
 Segue o link para a apresentação dessa segunda entrega:
 
-<!-- [![Vídeo do projeto](https://img.youtube.com/vi/V98-hE-wLLE/0.jpg)](https://youtu.be/V98-hE-wLLE) -->
+[![Vídeo do projeto](https://img.youtube.com/vi/V98-hE-wLLE/0.jpg)](https://www.youtube.com/watch?v=pAkORho99Lw)
 
 ## Screenshots
 <center>
